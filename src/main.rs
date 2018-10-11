@@ -59,7 +59,7 @@ fn main(){
         let mut input_mode_num: i32 = match input_mode.trim().parse() {
             Ok(n) => n,
             Err(_) => {
-                println!("Con't parse.");
+                println!("Can't parse.");
                 continue
             },
         };
