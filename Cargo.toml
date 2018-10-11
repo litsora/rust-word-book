@@ -1,5 +1,5 @@
 [package]
-name = "word-list"
+name = "rust-word-book"
 version = "0.1.0"
 authors = ["s0ralit <s0ralit@protonmail.com>"]
 

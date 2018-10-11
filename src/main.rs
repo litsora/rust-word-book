@@ -16,7 +16,7 @@ impl Word {
 }
 
 impl WordModel {
-    // 単語を閲覧
+
     fn show (&mut self) {
         println!("All words!");
         for (id, word) in self.words.iter().enumerate()  {
@@ -27,7 +27,6 @@ impl WordModel {
         }
     }
 
-    // 単語を追加
     fn add(&mut self) {
         println!("Please input English.");
         let mut English = String::new();
