@@ -16,7 +16,7 @@ impl Word {
 }
 
 impl WordModel {
-
+    // 単語を閲覧
     fn show (&mut self) {
         println!("All words!");
         for (id, word) in self.words.iter().enumerate()  {
@@ -27,6 +27,7 @@ impl WordModel {
         }
     }
 
+    // 単語を追加
     fn add(&mut self) {
         println!("Please input English.");
         let mut English = String::new();
@@ -46,6 +47,29 @@ impl WordModel {
 
 fn main(){
     let mut word_model = WordModel{ words: Vec::new() };
-    word_model.add();
-    word_model.show();
+    loop {
+        println!("Please input mode.");
+        println!("1: Add word.\n\
+              2: Delete word.\n\
+              3: Show all words.\n\
+              4: exit."
+        );
+        let mut input_mode = String::new();
+        io::stdin().read_line(&mut input_mode)
+            .expect("Failed to read line");
+        let mut input_mode_num: i32 = match input_mode.trim().parse() {
+            Ok(n) => n,
+            Err(_) => {
+                println!("Con't parse.");
+                continue
+            },
+        };
+        match input_mode_num {
+            1 => word_model.add(),
+            2 => word_model.delete(),
+            3 => word_model.show(),
+            4 => break,
+            _ => println!("You must write number.")
+        }
+    }
 }
